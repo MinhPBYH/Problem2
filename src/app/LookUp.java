@@ -18,7 +18,7 @@ public class LookUp {
     static Pattern patternFurnitureSerial = Pattern.compile("^[F][U][R]{1}[0-9]{4}$");// format FURxxxx
     static Matcher matcher;
     static String tempSerial;
-
+    
     //function for the user to input data for Video
     public static void enterDataVideo(Video video){
         // the loop checks the format of serial number  
@@ -208,11 +208,15 @@ public class LookUp {
             System.out.println("5.Show information of Books.");
             System.out.println("6.Show information of Furnitures.");
             System.out.println("7.Show information based on serial number.");
-            System.out.println("Any number to exit.");
+            System.out.println("Press other key to exit.");
             System.out.println("-------------------------------------------");
             System.out.print("Press the key corresponding to your selection:");
-        
-            choice = sc.nextInt(); sc.nextLine();
+            
+            try {
+                choice = sc.nextInt(); sc.nextLine();
+            } catch (Exception e) {
+            	choice = Integer.MIN_VALUE;
+            }
         
             switch(choice){
                 case 1:// enter data for videos
